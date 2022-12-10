@@ -7,5 +7,9 @@ export const getWeather = async (city: string): Promise<WeatherResponse> => {
     `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}`
   );
 
+  if (!res.ok) {
+    throw new Error("Failed to fetch weather data");
+  }
+
   return res.json();
 };
