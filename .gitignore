@@ -11,10 +11,18 @@ coverage
 # next.js
 .next/
 out/
-build
+build/
+
+.cache
+public/build/
+
+dist/
+.output/
 
 .solid
 dist
+
+.svelte-kit
 
 # misc
 .DS_Store
