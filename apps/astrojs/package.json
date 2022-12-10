@@ -1,5 +1,5 @@
 {
-  "name": "astro",
+  "name": "astrojs",
   "type": "module",
   "version": "0.0.1",
   "private": true,
@@ -11,6 +11,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^1.6.13"
+    "astro": "^1.6.14"
   }
 }
