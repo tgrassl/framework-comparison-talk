@@ -1,4 +1,10 @@
-import { getWeather } from 'shared';
+import { getWeather, TOP_CITIES } from 'shared';
+
+export function generateStaticParams() {
+  return TOP_CITIES.map((city) => ({
+    city,
+  }));
+}
 
 export default async function Details({ params }: any) {
   const weatherData = await getWeather(params.city);
