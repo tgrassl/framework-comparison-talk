@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { getWeather, TOP_CITIES } from 'shared'
 import { Card } from '../components/Card/Card'
+import { Input } from '../components/Card/Input'
 
 const fetchMainCities = async () => {
   return Promise.all(TOP_CITIES.map(async (city) => {
@@ -10,6 +11,7 @@ const fetchMainCities = async () => {
 
 export default async function Home() {
   const cityData = await fetchMainCities()
+
   return (
     <div className="container">
       <main>
@@ -26,6 +28,9 @@ export default async function Home() {
             </Link>
           ))}
         </div>
+
+        <Input />
+
       </main>
     </div>
   )

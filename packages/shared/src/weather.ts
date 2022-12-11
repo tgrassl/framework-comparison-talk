@@ -1,4 +1,4 @@
-import { WeatherResponse } from "./weather.model";
+import type { WeatherResponse } from "./weather.model";
 
 const API_KEY = "08dfeddb4569409ebb4170456221012";
 

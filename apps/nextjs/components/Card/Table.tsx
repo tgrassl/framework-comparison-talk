@@ -7,7 +7,7 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 import Image from 'next/image';
-import { WeatherResponse } from 'shared';
+import type { WeatherResponse } from 'shared';
 
 export interface TableProps {
   weatherData: WeatherResponse;
