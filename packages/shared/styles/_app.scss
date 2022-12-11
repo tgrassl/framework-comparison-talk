@@ -62,6 +62,14 @@ main {
   max-width: 1200px;
 }
 
+.centerOnScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 99vh;
+}
+
 .container {
   padding: 0 2rem;
 }

@@ -22,7 +22,7 @@ export default async function Home() {
         <div className="grid">
           {cityData.map(({ current: { last_updated, condition: { icon } }, location: { name } }) => (
             <Link href={`/details/${name.toLowerCase()}`} key={name}>
-              <Card title={name} subtitle={new Date(last_updated).toLocaleDateString()} icon={icon} />
+              <Card title={name} subtitle={new Date(last_updated ?? Date.now()).toLocaleDateString()} icon={icon} />
             </Link>
           ))}
         </div>

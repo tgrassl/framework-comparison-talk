@@ -2,13 +2,15 @@
 
 import { useEffect } from 'react';
 
+interface ErrorProps {
+  error: Error;
+  reset: () => void;
+}
+
 export default function Error({
   error,
   reset,
-}: {
-  error: Error;
-  reset: () => void;
-}) {
+}: ErrorProps) {
   useEffect(() => {
     console.error(error);
   }, [error]);
@@ -16,7 +18,7 @@ export default function Error({
   return (
     <div>
       <p>Something went wrong!</p>
-      <button onClick={() => reset()}>Reset error boundary</button>
+      <button onClick={reset}>Reset error boundary</button>
     </div>
   );
 }
