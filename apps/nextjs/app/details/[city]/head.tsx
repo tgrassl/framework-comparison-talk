@@ -4,5 +4,5 @@ export default function Head({ params }: any) {
     <>
       <title>{title}</title>
     </>
-  )
+  );
 }

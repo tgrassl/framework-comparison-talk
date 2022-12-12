@@ -1,6 +1,8 @@
 @import "boxicons";
 @import "./card";
 
+$MARGIN: 2rem;
+
 html,
 body {
   padding: 0;
@@ -71,7 +73,11 @@ main {
 }
 
 .container {
-  padding: 0 2rem;
+  padding: 0 $MARGIN;
+}
+
+.marginBottom {
+  margin-bottom: $MARGIN;
 }
 
 .bxs-sun {
@@ -85,16 +91,20 @@ main {
   font-weight: 800;
   letter-spacing: -0.025em;
   margin-top: 0;
-  margin-bottom: 2rem;
+  margin-bottom: $MARGIN;
 }
 
 .title {
   text-align: center;
 }
 
+.input {
+  margin-bottom: calc($MARGIN / 4);
+}
+
 .button {
   display: block;
-  padding: 2rem 0.5rem;
+  padding: 1rem 1.5rem;
   background-color: #fdd401;
   width: 100%;
 }

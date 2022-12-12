@@ -8,9 +8,20 @@ export const Input = () => {
   const { push } = useRouter();
 
   return (
-    <div className='container'>
-      <input type="text" id="search" onChange={(e) => setQuery(e.target.value)} value={query} />
-      <button type='submit' className='button' onClick={() => push(`/details/${query}`)}>Search</button>
+    <div className="container">
+      <input
+        type="text"
+        className="input"
+        onChange={(e) => setQuery(e.target.value)}
+        value={query}
+      />
+      <button
+        type="submit"
+        className="button"
+        onClick={() => push(`/details/${query}`)}
+      >
+        Search
+      </button>
     </div>
   );
 };

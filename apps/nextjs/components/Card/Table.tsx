@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import {
   createColumnHelper,
@@ -76,7 +76,12 @@ const columns = [
       columnHelper.accessor('current.condition.icon', {
         header: '',
         cell: (info) => (
-          <Image src={`https:${info.getValue()}`} width={50} height={50} alt={info.getValue()} />
+          <Image
+            src={`https:${info.getValue()}`}
+            width={50}
+            height={50}
+            alt={info.getValue()}
+          />
         ),
         footer: (props) => props.column.id,
       }),

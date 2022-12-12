@@ -12,5 +12,6 @@ export default async function Details({ params }: any) {
   return (
     <div className="centerOnScreen">
       <Table weatherData={weatherData}></Table>
-    </div>)
+    </div>
+  );
 }
