@@ -1,9 +1,10 @@
+import type { LoaderFunction } from "@remix-run/node";
 import { useLoaderData, Link } from "@remix-run/react";
+import { json } from "@remix-run/node";
 
 import type { IStory } from "~/types";
 import Story from "../components/story";
 import fetchAPI from "~/api";
-import { json, LoaderFunction } from "@remix-run/node";
 
 interface StoriesData {
   page: number;
@@ -11,20 +12,23 @@ interface StoriesData {
   stories: IStory[];
 }
 
-// Loaders provide data to components and are only ever called on the server, so
-// you can connect to a database or run any server side code you want right next
-// to the component that renders it.
-// https://remix.run/api/conventions#loader
+const mapStories: Record<string, string> = {
+  top: "news",
+  new: "newest",
+  show: "show",
+  ask: "ask",
+  job: "jobs",
+};
+
 export let loader: LoaderFunction = async ({ params, request }) => {
   let url = new URL(request.url);
   let page = +(url.searchParams.get("page") || 1);
-  const type = "top"
-  const stories = await fetchAPI(`news?page=${page}`)
+  const type = params["*"] || "top";
+  const stories = await fetchAPI(`${mapStories[type]}?page=${page}`)
 
   return json({ type, stories, page });
 };
 
-// https://remix.run/guides/routing#index-routes
 export default function Index() {
   let { page, type, stories } = useLoaderData<StoriesData>();
 

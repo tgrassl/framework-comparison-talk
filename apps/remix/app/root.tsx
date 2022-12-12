@@ -7,12 +7,24 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import Nav from "~/components/nav";
+
+import styles from "~/styles/global.css";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
   title: "New Remix App",
   viewport: "width=device-width,initial-scale=1",
 });
+
+export function links() {
+  return [
+    {
+      rel: "stylesheet",
+      href: styles,
+    },
+  ];
+}
 
 export default function App() {
   return (
@@ -22,6 +34,7 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <Nav/>
         <Outlet />
         <ScrollRestoration />
         <Scripts />
