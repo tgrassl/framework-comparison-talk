@@ -1,4 +1,4 @@
-import defaultImage from '../../public/vercel.svg';
+import defaultImage from '../public/vercel.svg';
 import Image from 'next/image';
 
 export interface CardProps {
