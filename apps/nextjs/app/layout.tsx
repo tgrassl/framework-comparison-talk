@@ -1,4 +1,5 @@
-import "./globals.scss";
+import "./globals.css";
+import Nav from "../components/nav";
 
 export default function RootLayout({
   children,
@@ -13,9 +14,8 @@ export default function RootLayout({
       */}
       <head />
       <body>
-        <div className="container">
-          <main className="centerOnScreen">{children}</main>
-        </div>
+        <Nav />
+        {children}
       </body>
     </html>
   );

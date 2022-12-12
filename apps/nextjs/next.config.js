@@ -3,9 +3,6 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  images: {
-    domains: ['cdn.weatherapi.com'],
-  },
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
