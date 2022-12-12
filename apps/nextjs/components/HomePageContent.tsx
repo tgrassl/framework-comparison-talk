@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import { WeatherResponse } from 'shared';
-import { Card } from './Card';
-import { Input } from './Input';
+import Link from "next/link";
+import { WeatherResponse } from "shared";
+import { Card } from "./Card";
+import { Input } from "./Input";
 
 interface HomePageContentProps {
   cityData: WeatherResponse[];

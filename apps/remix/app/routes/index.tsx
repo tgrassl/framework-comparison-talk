@@ -18,8 +18,8 @@ interface StoriesData {
 export let loader: LoaderFunction = async ({ params, request }) => {
   let url = new URL(request.url);
   let page = +(url.searchParams.get("page") || 1);
-  const type = "top"
-  const stories = await fetchAPI(`news?page=${page}`)
+  const type = "top";
+  const stories = await fetchAPI(`news?page=${page}`);
 
   return json({ type, stories, page });
 };

@@ -1,5 +1,5 @@
-import { getWeather, TOP_CITIES } from 'shared';
-import { Table } from '../../../components/Table';
+import { getWeather, TOP_CITIES } from "shared";
+import { Table } from "../../../components/Table";
 
 export function generateStaticParams() {
   return TOP_CITIES.map((city) => ({

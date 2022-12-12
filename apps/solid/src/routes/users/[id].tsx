@@ -11,8 +11,8 @@ interface IUser {
 }
 
 export const routeData = (props: RouteDataArgs) => {
-  return createRouteData<IUser, string>( async () => {
-    return fetchAPI(`user/${props.params.id}`)
+  return createRouteData<IUser, string>(async () => {
+    return fetchAPI(`user/${props.params.id}`);
   });
 };
 
@@ -35,8 +35,13 @@ const User: Component = () => {
             </Show>
           </ul>
           <p class="links">
-            <a href={`https://news.ycombinator.com/submitted?id=${user()!.id}`}>submissions</a> |{" "}
-            <a href={`https://news.ycombinator.com/threads?id=${user()!.id}`}>comments</a>
+            <a href={`https://news.ycombinator.com/submitted?id=${user()!.id}`}>
+              submissions
+            </a>{" "}
+            |{" "}
+            <a href={`https://news.ycombinator.com/threads?id=${user()!.id}`}>
+              comments
+            </a>
           </p>
         </Show>
       </Show>

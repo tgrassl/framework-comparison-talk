@@ -19,7 +19,12 @@ function Nav() {
         <A href="/job">
           <strong>Jobs</strong>
         </A>
-        <a class="github" href="http://github.com/solidjs/solid" target="_blank" rel="noreferrer">
+        <a
+          class="github"
+          href="http://github.com/solidjs/solid"
+          target="_blank"
+          rel="noreferrer"
+        >
           Built with Solid
         </a>
       </nav>

@@ -3,7 +3,7 @@ import { A } from "solid-start";
 
 import type { IStory } from "../types";
 
-const Story: Component<{ story: IStory }> = props => {
+const Story: Component<{ story: IStory }> = (props) => {
   return (
     <li class="news-item">
       <span class="score">{props.story.points}</span>
@@ -22,11 +22,16 @@ const Story: Component<{ story: IStory }> = props => {
       <span class="meta">
         <Show
           when={props.story.type !== "job"}
-          fallback={<A href={`/stories/${props.story.id}`}>{props.story.time_ago}</A>}
+          fallback={
+            <A href={`/stories/${props.story.id}`}>{props.story.time_ago}</A>
+          }
         >
-          by <A href={`/users/${props.story.user}`}>{props.story.user}</A> {props.story.time_ago} |{" "}
+          by <A href={`/users/${props.story.user}`}>{props.story.user}</A>{" "}
+          {props.story.time_ago} |{" "}
           <A href={`/stories/${props.story.id}`}>
-            {props.story.comments_count ? `${props.story.comments_count} comments` : "discuss"}
+            {props.story.comments_count
+              ? `${props.story.comments_count} comments`
+              : "discuss"}
           </A>
         </Show>
       </span>

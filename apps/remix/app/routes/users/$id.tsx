@@ -12,7 +12,7 @@ export interface IUser {
 }
 
 export let loader: LoaderFunction = async ({ params }) => {
-  const user = await fetchAPI(`user/${params.id}`)
+  const user = await fetchAPI(`user/${params.id}`);
   return json({ user });
 };
 

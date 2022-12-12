@@ -19,7 +19,12 @@ function Nav() {
         <Link to="/job">
           <strong>Jobs</strong>
         </Link>
-        <a className="github" href="https://remix.run" target="_blank" rel="noreferrer">
+        <a
+          className="github"
+          href="https://remix.run"
+          target="_blank"
+          rel="noreferrer"
+        >
           Built with Remix
         </a>
       </nav>

@@ -1,7 +1,7 @@
-import type { GetStaticProps, NextPage } from 'next';
-import type { WeatherResponse } from 'shared';
-import { fetchMainCities } from 'shared';
-import { HomePageContent } from '../../components/HomePageContent';
+import type { GetStaticProps, NextPage } from "next";
+import type { WeatherResponse } from "shared";
+import { fetchMainCities } from "shared";
+import { HomePageContent } from "../../components/HomePageContent";
 
 interface HomePageProps {
   weatherData: WeatherResponse[];

@@ -7,8 +7,8 @@ import Comment from "../../components/comment";
 import fetchAPI from "~/api";
 
 export let loader: LoaderFunction = async ({ params }) => {
-  console.log('Hello from the server')
-  const story = await fetchAPI(`item/${params.id}`)
+  console.log("Hello from the server");
+  const story = await fetchAPI(`item/${params.id}`);
 
   return json({ story });
 };

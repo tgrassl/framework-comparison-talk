@@ -9,15 +9,15 @@ const mapStories = {
   new: "newest",
   show: "show",
   ask: "ask",
-  job: "jobs"
+  job: "jobs",
 } as const;
 
 export const routeData = ({ location, params }: RouteDataArgs) => {
   const page = () => +location.query.page || 1;
   const type = () => (params.stories || "top") as keyof typeof mapStories;
 
-  const stories = createRouteData<IStory[], string>( async () => {
-    return fetchAPI(`${mapStories[type()]}?page=${page()}`)
+  const stories = createRouteData<IStory[], string>(async () => {
+    return fetchAPI(`${mapStories[type()]}?page=${page()}`);
   });
 
   return { type, stories, page };
@@ -36,7 +36,11 @@ const Stories: Component = () => {
             </span>
           }
         >
-          <A class="page-link" href={`/${type()}?page=${page() - 1}`} aria-label="Previous Page">
+          <A
+            class="page-link"
+            href={`/${type()}?page=${page() - 1}`}
+            aria-label="Previous Page"
+          >
             {"<"} prev
           </A>
         </Show>
@@ -49,7 +53,11 @@ const Stories: Component = () => {
             </span>
           }
         >
-          <A class="page-link" href={`/${type()}?page=${page() + 1}`} aria-label="Next Page">
+          <A
+            class="page-link"
+            href={`/${type()}?page=${page() + 1}`}
+            aria-label="Next Page"
+          >
             more {">"}
           </A>
         </Show>
@@ -57,7 +65,7 @@ const Stories: Component = () => {
       <main class="news-list">
         <Show when={stories()}>
           <ul>
-            <For each={stories()}>{story => <Story story={story} />}</For>
+            <For each={stories()}>{(story) => <Story story={story} />}</For>
           </ul>
         </Show>
       </main>

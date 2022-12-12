@@ -1,8 +1,8 @@
-import type { WeatherResponse } from './weather.model';
+import type { WeatherResponse } from "./weather.model";
 
-const API_KEY = '08dfeddb4569409ebb4170456221012';
+const API_KEY = "08dfeddb4569409ebb4170456221012";
 
-export const TOP_CITIES = ['munich', 'london', 'tokyo'];
+export const TOP_CITIES = ["munich", "london", "tokyo"];
 
 export const getWeather = async (city: string): Promise<WeatherResponse> => {
   const res = await fetch(
@@ -10,7 +10,7 @@ export const getWeather = async (city: string): Promise<WeatherResponse> => {
   );
 
   if (!res.ok) {
-    throw new Error('Failed to fetch weather data');
+    throw new Error("Failed to fetch weather data");
   }
 
   return res.json();

@@ -8,8 +8,8 @@ import { IStory } from "~/types";
 export const routeData = ({ params }: RouteDataArgs) => {
   return createServerData$(
     async ([id]): Promise<IStory> => {
-      console.log('Hello from the server');
-      return fetchAPI(`item/${id}`)
+      console.log("Hello from the server");
+      return fetchAPI(`item/${id}`);
     },
     { key: () => [params.id] }
   );
@@ -28,16 +28,21 @@ const Story: Component = () => {
             <span class="host">({story()!.domain})</span>
           </Show>
           <p class="meta">
-            {story()!.points} points | by <A href={`/users/${story()!.user}`}>{story()!.user}</A>{" "}
+            {story()!.points} points | by{" "}
+            <A href={`/users/${story()!.user}`}>{story()!.user}</A>{" "}
             {story()!.time_ago} ago
           </p>
         </div>
         <div class="item-view-comments">
           <p class="item-view-comments-header">
-            {story()!.comments_count ? story()!.comments_count + " comments" : "No comments yet."}
+            {story()!.comments_count
+              ? story()!.comments_count + " comments"
+              : "No comments yet."}
           </p>
           <ul class="comment-children">
-            <For each={story()!.comments}>{comment => <Comment comment={comment} />}</For>
+            <For each={story()!.comments}>
+              {(comment) => <Comment comment={comment} />}
+            </For>
           </ul>
         </div>
       </div>

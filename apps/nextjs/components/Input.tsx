@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export const Input = () => {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const { push } = useRouter();
 
   return (
