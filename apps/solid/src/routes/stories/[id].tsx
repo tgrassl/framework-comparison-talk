@@ -8,6 +8,7 @@ import { IStory } from "~/types";
 export const routeData = ({ params }: RouteDataArgs) => {
   return createServerData$(
     async ([id]): Promise<IStory> => {
+      console.log('Hello from the server');
       return fetchAPI(`item/${id}`)
     },
     { key: () => [params.id] }
