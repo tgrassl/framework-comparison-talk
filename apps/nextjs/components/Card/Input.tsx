@@ -8,7 +8,7 @@ export const Input = () => {
   const { push } = useRouter();
 
   return (
-    <div className="container">
+    <div className="maxWidth">
       <input
         type="text"
         className="input"

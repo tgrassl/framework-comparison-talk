@@ -61,7 +61,13 @@ main {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  flex-direction: column;
   max-width: 1200px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
 }
 
 .centerOnScreen {
@@ -96,6 +102,10 @@ main {
 
 .title {
   text-align: center;
+}
+
+.maxWidth {
+  max-width: 25%;
 }
 
 .input {

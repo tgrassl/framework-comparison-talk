@@ -15,13 +15,13 @@ export default async function Home() {
   const cityData = await fetchMainCities();
 
   return (
-    <div className="container">
-      <main>
-        <div>
-          <h1 className="title">AstralWeather</h1>
-        </div>
+    <>
+      <div>
+        <h1 className="title">AstralWeather</h1>
+      </div>
 
-        <div className="grid marginBottom">
+      <div className="grid">
+        <div className="row marginBottom">
           {cityData.map(
             ({
               current: {
@@ -42,9 +42,8 @@ export default async function Home() {
             )
           )}
         </div>
-
         <Input />
-      </main>
-    </div>
+      </div>
+    </>
   );
 }
