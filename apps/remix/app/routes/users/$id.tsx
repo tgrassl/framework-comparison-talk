@@ -11,7 +11,7 @@ export interface IUser {
   about: string;
 }
 
-export let loader: LoaderFunction = async ({ params }) => {
+export const loader: LoaderFunction = async ({ params }) => {
   const user = await fetchAPI(`user/${params.id}`);
   return json({ user });
 };

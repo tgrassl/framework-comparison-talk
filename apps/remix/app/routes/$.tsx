@@ -20,7 +20,7 @@ const mapStories: Record<string, string> = {
   job: "jobs",
 };
 
-export let loader: LoaderFunction = async ({ params, request }) => {
+export const loader: LoaderFunction = async ({ params, request }) => {
   let url = new URL(request.url);
   let page = +(url.searchParams.get("page") || 1);
   const type = params["*"] || "top";

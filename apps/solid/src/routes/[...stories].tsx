@@ -1,5 +1,6 @@
 import { Component, createResource, For, Show } from "solid-js";
 import { A, createRouteData, RouteDataArgs, useRouteData } from "solid-start";
+import server$ from "solid-start/server";
 import Story from "~/components/story";
 import fetchAPI from "~/lib/api";
 import { IStory } from "~/types";
@@ -25,6 +26,7 @@ export const routeData = ({ location, params }: RouteDataArgs) => {
 
 const Stories: Component = () => {
   const { page, type, stories } = useRouteData<typeof routeData>();
+
   return (
     <div class="news-view">
       <div class="news-list-nav">
