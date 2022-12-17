@@ -1,25 +1,9 @@
-<script context="module">
-	import fetchAPI from '$lib/api';
-	export async function load({ params, fetch }) {
-		const story = await fetchAPI(fetch, `item/${params.id}`);
-
-		if (story) {
-			return {
-				props: { story }
-			};
-		}
-
-		return {
-			status: 404
-		};
-	}
-</script>
-
-<script>
+<script lang="ts">
 	import { navigating } from '$app/stores';
 	import Comment from '$lib/Comment.svelte';
+	import type { PageData } from './$types';
 
-	export let story;
+	export let data: PageData;
 </script>
 
 {#if $navigating}
@@ -27,24 +11,24 @@
 {:else}
 	<div class="item-view">
 		<div class="item-view-header">
-			<a href={story.url} target="_blank">
-				<h1>{story.title}</h1>
+			<a href={data.story.url} target="_blank" rel="noreferrer">
+				<h1>{data.story.title}</h1>
 			</a>
-			{#if story.domain}
-				<span class="host">({story.domain})</span>
+			{#if data.story.domain}
+				<span class="host">({data.story.domain})</span>
 			{/if}
 			<p class="meta">
-				{story.points} points | by
-				<a href={`/users/${story.user}`}>{story.user}</a>
-				{story.time_ago} ago
+				{data.story.points} points | by
+				<a href={`/users/${data.story.user}`}>{data.story.user}</a>
+				{data.story.time_ago} ago
 			</p>
 		</div>
 		<div class="item-view-comments">
 			<p class="item-view-comments-header">
-				{story.comments_count ? story.comments_count + ' comments' : 'No comments yet.'}
+				{data.story.comments_count ? data.story.comments_count + ' comments' : 'No comments yet.'}
 			</p>
 			<ul class="comment-children">
-				{#each story.comments as comment (comment.id)}
+				{#each data.story.comments as comment (comment.id)}
 					<Comment {comment} />
 				{/each}
 			</ul>

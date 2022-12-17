@@ -1,40 +1,10 @@
-<script context="module">
-	import fetchAPI from '$lib/api';
-
-	export const hydrate = false;
-
-	const mapStories = {
-		top: 'news',
-		new: 'newest',
-		show: 'show',
-		ask: 'ask',
-		job: 'jobs'
-	};
-	export async function load({ params, fetch, url }) {
-		const type = params.stories || 'top';
-		const page = +(url.searchParams.get('page') || 1);
-		const endpoint = mapStories[type];
-		const stories = await fetchAPI(fetch, `${endpoint}?page=${page}`);
-
-		if (stories) {
-			return {
-				props: { stories, page, type }
-			};
-		}
-
-		return {
-			status: 404
-		};
-	}
-</script>
-
-<script>
+<script lang="ts">
 	import Story from '$lib/Story.svelte';
 	import { navigating } from '$app/stores';
 
-	export let stories;
-	export let page;
-	export let type;
+	/** @type {import('./$types').PageData} */
+	export let data;
+	export let { page, type, stories } = data;
 </script>
 
 <div class="news-view">
@@ -57,7 +27,7 @@
 			{:else}
 				<span class="page-link disabled" aria-disabled="true">
 					more {'>'}
-				</span>}
+				</span>
 			{/if}
 		</div>
 		<main class="news-list">
