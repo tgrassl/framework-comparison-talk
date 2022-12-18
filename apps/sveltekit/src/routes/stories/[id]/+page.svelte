@@ -6,6 +6,10 @@
 	export let data: PageData;
 </script>
 
+<svelte:head>
+	<title>{data.story.title} | Svelte Hacker News</title>
+</svelte:head>
+
 {#if $navigating}
 	<div class="news-list-nav">Loading...</div>
 {:else}

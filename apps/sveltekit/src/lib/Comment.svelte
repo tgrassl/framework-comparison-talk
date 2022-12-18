@@ -21,9 +21,10 @@
 		</div>
 		{#if open}
 			<ul class="comment-children">
-				{#each comment.comments as Comment}
-					<svelte:self {comment} />
-				{/each}
+				<!-- recursive comments cause call stack size exceeded error-->
+				<!--{#each comment.comments as Comment}-->
+				<!--	<svelte:self {comment} />-->
+				<!--{/each}-->
 			</ul>
 		{/if}
 	{/if}
