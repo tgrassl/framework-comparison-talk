@@ -4,10 +4,8 @@ import type { IStory } from "../../../types";
 import Comment from "../../../components/comment";
 import fetchAPI from "../../../api";
 
-const Story = async ({ params }: {
-  params: { id: string };
-}) => {
-  const story: IStory = await fetchAPI(`item/${params.id}`)
+const Story = async ({ params }: { params: { id: string } }) => {
+  const story: IStory = await fetchAPI(`item/${params.id}`);
   return (
     story && (
       <div className="item-view">

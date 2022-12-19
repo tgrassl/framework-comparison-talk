@@ -22,7 +22,8 @@ const Story = (props: { story: IStory }) => {
       <span className="meta">
         {props.story.type !== "job" ? (
           <>
-            by <Link href={`/users/${props.story.user}`}>{props.story.user}</Link>{" "}
+            by{" "}
+            <Link href={`/users/${props.story.user}`}>{props.story.user}</Link>{" "}
             {props.story.time_ago} |{" "}
             <Link href={`/stories/${props.story.id}`}>
               {props.story.comments_count
@@ -31,7 +32,9 @@ const Story = (props: { story: IStory }) => {
             </Link>
           </>
         ) : (
-          <Link href={`/stories/${props.story.id}`}>{props.story.time_ago}</Link>
+          <Link href={`/stories/${props.story.id}`}>
+            {props.story.time_ago}
+          </Link>
         )}
       </span>
       {props.story.type !== "link" && (

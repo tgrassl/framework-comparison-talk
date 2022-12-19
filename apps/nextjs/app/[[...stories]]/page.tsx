@@ -19,13 +19,18 @@ const mapStories = {
 };
 
 // https://remix.run/guides/routing#index-routes
-export default async function Index({ params, searchParams }: {
+export default async function Index({
+  params,
+  searchParams,
+}: {
   params: { stories: string };
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
   let page = +(searchParams.page || 1);
-  const type = params.stories ? params.stories[0] : "top"
-  const stories: IStory[] = await fetchAPI(`${mapStories[type as keyof typeof mapStories]}?page=${page}`)
+  const type = params.stories ? params.stories[0] : "top";
+  const stories: IStory[] = await fetchAPI(
+    `${mapStories[type as keyof typeof mapStories]}?page=${page}`
+  );
 
   return (
     <div className="news-view">

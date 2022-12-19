@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import type { IComment } from "../types";
-import Toggle  from "./toggle";
+import Toggle from "./toggle";
 
 const Comment = (props: { comment: IComment }) => {
   return (

@@ -6,7 +6,7 @@ import type { User } from '$lib/types';
 export const load: PageServerLoad<{ user: User }> = async ({ params }) => {
 	const user = await fetchAPI<User>(`user/${params.id}`);
 
-	console.log('Hello from the server!')
+	console.log('Hello from the server!');
 
 	if (!user) {
 		throw error(404, { message: 'User not found' });

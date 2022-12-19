@@ -6,5 +6,5 @@ export default function Head() {
       <meta name="description" content="Simple Hackernews Demo" />
       <link rel="icon" href="/favicon.ico" />
     </>
-  )
+  );
 }

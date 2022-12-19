@@ -19,7 +19,12 @@ function Nav() {
         <Link href="/job">
           <strong>Jobs</strong>
         </Link>
-        <a className="github" href="https://nextjs.org" target="_blank" rel="noreferrer">
+        <a
+          className="github"
+          href="https://nextjs.org"
+          target="_blank"
+          rel="noreferrer"
+        >
           Built with Next
         </a>
       </nav>
