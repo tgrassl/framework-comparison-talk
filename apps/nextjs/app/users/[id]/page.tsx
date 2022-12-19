@@ -1,5 +1,5 @@
-import type { IUser } from '../../../types';
-import fetchAPI from '../../../api';
+import type { IUser } from "../../../types";
+import fetchAPI from "../../../api";
 
 const User = async ({ params }: { params: { id: string } }) => {
   const user: IUser | null = await fetchAPI(`user/${params.id}`);
@@ -29,8 +29,8 @@ const User = async ({ params }: { params: { id: string } }) => {
         <p className="links">
           <a href={`https://news.ycombinator.com/submitted?id=${user.id}`}>
             submissions
-          </a>{' '}
-          |{' '}
+          </a>{" "}
+          |{" "}
           <a href={`https://news.ycombinator.com/threads?id=${user.id}`}>
             comments
           </a>

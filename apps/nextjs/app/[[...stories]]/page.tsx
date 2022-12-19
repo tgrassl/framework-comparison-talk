@@ -1,8 +1,8 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import type { IStory } from '../../types';
-import Story from '../../components/story';
-import fetchAPI from '../../api';
+import type { IStory } from "../../types";
+import Story from "../../components/story";
+import fetchAPI from "../../api";
 
 interface StoriesData {
   page: number;
@@ -11,11 +11,11 @@ interface StoriesData {
 }
 
 const mapStories = {
-  top: 'news',
-  new: 'newest',
-  show: 'show',
-  ask: 'ask',
-  job: 'jobs',
+  top: "news",
+  new: "newest",
+  show: "show",
+  ask: "ask",
+  job: "jobs",
 };
 
 export default async function Index({
@@ -26,7 +26,7 @@ export default async function Index({
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
   let page = +(searchParams.page || 1);
-  const type = params.stories ? params.stories[0] : 'top';
+  const type = params.stories ? params.stories[0] : "top";
   const stories: IStory[] = await fetchAPI(
     `${mapStories[type as keyof typeof mapStories]}?page=${page}`
   );
@@ -40,11 +40,11 @@ export default async function Index({
             href={`/${type}?page=${page - 1}`}
             aria-label="Previous Page"
           >
-            {'<'} prev
+            {"<"} prev
           </Link>
         ) : (
           <span className="page-link disabled" aria-disabled="true">
-            {'<'} prev
+            {"<"} prev
           </span>
         )}
         <span>page {page}</span>
@@ -54,11 +54,11 @@ export default async function Index({
             href={`/${type}?page=${page + 1}`}
             aria-label="Next Page"
           >
-            more {'>'}
+            more {">"}
           </Link>
         ) : (
           <span className="page-link disabled" aria-disabled="true">
-            more {'>'}
+            more {">"}
           </span>
         )}
       </div>

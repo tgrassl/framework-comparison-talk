@@ -1,12 +1,12 @@
-import { createSignal } from 'solid-js';
-import server$ from 'solid-start/server';
+import { createSignal } from "solid-js";
+import server$ from "solid-start/server";
 
 export default function Toggle(props: { children: any }) {
   const [open, setOpen] = createSignal(true);
 
   const rpc = server$(() => {
-    console.log('Hi from the server');
-    return 'Welcome to Solid Start!';
+    console.log("Hi from the server");
+    return "Welcome to Solid Start!";
   });
 
   const handleClick = async () => {
@@ -18,11 +18,11 @@ export default function Toggle(props: { children: any }) {
   return (
     <>
       <div class="toggle" classList={{ open: open() }}>
-        <a onClick={handleClick}>{open() ? '[-]' : '[+] comments collapsed'}</a>
+        <a onClick={handleClick}>{open() ? "[-]" : "[+] comments collapsed"}</a>
       </div>
       <ul
         class="comment-children"
-        style={{ display: open() ? 'block' : 'none' }}
+        style={{ display: open() ? "block" : "none" }}
       >
         {props.children}
       </ul>
