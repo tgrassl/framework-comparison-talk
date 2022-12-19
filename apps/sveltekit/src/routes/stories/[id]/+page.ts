@@ -8,6 +8,8 @@ export const ssr = false;
 export const load: PageLoad<{ story: Story }> = async ({ params }) => {
 	const story = await fetchAPI<Story>(`item/${params.id}`);
 
+	console.log('Hello from the client!');
+
 	if (!story) {
 		throw error(404, { message: 'Story not found' });
 	}

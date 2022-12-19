@@ -5,11 +5,11 @@ const user = (path: string) =>
 export default function fetchAPI(path: string) {
   const url = path.startsWith('user') ? user(path) : story(path);
   const headers = { 'User-Agent': 'chrome' };
-  console.log({ url });
+  // console.log({ url });
 
   return fetch(url, { headers })
     .then((r) => {
-      console.log(r);
+      // console.log(r);
       return r.json();
     })
     .catch((error) => {

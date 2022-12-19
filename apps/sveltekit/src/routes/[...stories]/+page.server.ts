@@ -3,8 +3,6 @@ import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 import type { Story, StoryType } from '$lib/types';
 
-export const csr = false;
-
 const mapStories: Record<StoryType, string> = {
 	top: 'news',
 	new: 'newest',
