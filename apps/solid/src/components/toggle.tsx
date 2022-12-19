@@ -1,4 +1,4 @@
-import { createSignal, onMount } from "solid-js";
+import { createSignal } from "solid-js";
 import server$ from "solid-start/server";
 
 export default function Toggle(props: { children: any }) {

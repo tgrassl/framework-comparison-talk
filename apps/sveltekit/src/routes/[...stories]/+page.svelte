@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Story from '$lib/Story.svelte';
 	import { navigating } from '$app/stores';
+	import type { PageData } from './$types';
 
-	/** @type {import('./$types').PageData} */
-	export let data;
+	export let data: PageData;
 	export let { page, type, stories } = data;
 </script>
 
