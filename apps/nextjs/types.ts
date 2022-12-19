@@ -18,3 +18,11 @@ export interface IStory {
   comments_count: number;
   comments: IComment[];
 }
+
+export interface IUser {
+  id: string;
+  created: string;
+  karma: string;
+  about: string;
+  name: string;
+}
