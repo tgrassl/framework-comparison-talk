@@ -5,10 +5,6 @@
 
 	export let comment: Comment;
 	let open = true;
-
-	function handleClick() {
-		open = !open;
-	}
 </script>
 
 <li class="comment">
@@ -19,9 +15,9 @@
 	<div class="text">{@html comment.content}</div>
 	{#if comment.comments.length}
 		<div class="toggle" class:open>
-			<a on:click={handleClick}>
+			<button on:click={() => (open = !open)}>
 				{open ? '[-]' : '[+] ' + pluralize(comment.comments.length) + ' collapsed'}
-			</a>
+			</button>
 		</div>
 		{#if open}
 			<ul class="comment-children">

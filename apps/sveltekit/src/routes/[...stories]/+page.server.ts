@@ -1,6 +1,6 @@
 import fetchAPI from '$lib/api';
 import { error } from '@sveltejs/kit';
-import type { PageLoad } from './$types';
+import type { PageServerLoad } from './$types';
 import type { Story, StoryType } from '$lib/types';
 
 const mapStories: Record<StoryType, string> = {
@@ -11,7 +11,7 @@ const mapStories: Record<StoryType, string> = {
 	job: 'jobs'
 };
 
-export const load: PageLoad<{ stories: Story[]; page: number; type: StoryType }> = async ({
+export const load: PageServerLoad<{ stories: Story[]; page: number; type: StoryType }> = async ({
 	params,
 	url
 }) => {

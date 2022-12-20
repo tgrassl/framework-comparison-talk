@@ -1,21 +1,20 @@
-import { Component, createResource, For, Show } from "solid-js";
-import { A, createRouteData, RouteDataArgs, useRouteData } from "solid-start";
-import server$ from "solid-start/server";
-import Story from "~/components/story";
-import fetchAPI from "~/lib/api";
-import { IStory } from "~/types";
+import { Component, For, Show } from 'solid-js';
+import { A, createRouteData, RouteDataArgs, useRouteData } from 'solid-start';
+import Story from '~/components/story';
+import fetchAPI from '~/lib/api';
+import { IStory } from '~/types';
 
 const mapStories = {
-  top: "news",
-  new: "newest",
-  show: "show",
-  ask: "ask",
-  job: "jobs",
+  top: 'news',
+  new: 'newest',
+  show: 'show',
+  ask: 'ask',
+  job: 'jobs',
 } as const;
 
 export const routeData = ({ location, params }: RouteDataArgs) => {
   const page = () => +location.query.page || 1;
-  const type = () => (params.stories || "top") as keyof typeof mapStories;
+  const type = () => (params.stories || 'top') as keyof typeof mapStories;
 
   const stories = createRouteData<IStory[], string>(async () => {
     return fetchAPI(`${mapStories[type()]}?page=${page()}`);
@@ -34,7 +33,7 @@ const Stories: Component = () => {
           when={page() > 1}
           fallback={
             <span class="page-link disabled" aria-disabled="true">
-              {"<"} prev
+              {'<'} prev
             </span>
           }
         >
@@ -43,7 +42,7 @@ const Stories: Component = () => {
             href={`/${type()}?page=${page() - 1}`}
             aria-label="Previous Page"
           >
-            {"<"} prev
+            {'<'} prev
           </A>
         </Show>
         <span>page {page()}</span>
@@ -51,7 +50,7 @@ const Stories: Component = () => {
           when={stories() && stories()!.length >= 29}
           fallback={
             <span class="page-link disabled" aria-disabled="true">
-              more {">"}
+              more {'>'}
             </span>
           }
         >
@@ -60,7 +59,7 @@ const Stories: Component = () => {
             href={`/${type()}?page=${page() + 1}`}
             aria-label="Next Page"
           >
-            more {">"}
+            more {'>'}
           </A>
         </Show>
       </div>

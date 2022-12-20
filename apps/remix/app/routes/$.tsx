@@ -1,10 +1,10 @@
-import type { LoaderFunction } from "@remix-run/node";
-import { useLoaderData, Link } from "@remix-run/react";
-import { json } from "@remix-run/node";
+import type { LoaderFunction } from '@remix-run/node';
+import { useLoaderData, Link } from '@remix-run/react';
+import { json } from '@remix-run/node';
 
-import type { IStory } from "~/types";
-import Story from "../components/story";
-import fetchAPI from "~/api";
+import type { IStory } from '~/types';
+import Story from '../components/story';
+import fetchAPI from '~/api';
 
 interface StoriesData {
   page: number;
@@ -13,24 +13,24 @@ interface StoriesData {
 }
 
 const mapStories: Record<string, string> = {
-  top: "news",
-  new: "newest",
-  show: "show",
-  ask: "ask",
-  job: "jobs",
+  top: 'news',
+  new: 'newest',
+  show: 'show',
+  ask: 'ask',
+  job: 'jobs',
 };
 
 export const loader: LoaderFunction = async ({ params, request }) => {
-  let url = new URL(request.url);
-  let page = +(url.searchParams.get("page") || 1);
-  const type = params["*"] || "top";
+  const url = new URL(request.url);
+  const page = +(url.searchParams.get('page') || 1);
+  const type = params['*'] || 'top';
   const stories = await fetchAPI(`${mapStories[type]}?page=${page}`);
 
   return json({ type, stories, page });
 };
 
 export default function Index() {
-  let { page, type, stories } = useLoaderData<StoriesData>();
+  const { page, type, stories } = useLoaderData<StoriesData>();
 
   return (
     <div className="news-view">
@@ -41,11 +41,11 @@ export default function Index() {
             to={`/${type}?page=${page - 1}`}
             aria-label="Previous Page"
           >
-            {"<"} prev
+            {'<'} prev
           </Link>
         ) : (
           <span className="page-link disabled" aria-disabled="true">
-            {"<"} prev
+            {'<'} prev
           </span>
         )}
         <span>page {page}</span>
@@ -55,11 +55,11 @@ export default function Index() {
             to={`/${type}?page=${page + 1}`}
             aria-label="Next Page"
           >
-            more {">"}
+            more {'>'}
           </Link>
         ) : (
           <span className="page-link disabled" aria-disabled="true">
-            more {">"}
+            more {'>'}
           </span>
         )}
       </div>

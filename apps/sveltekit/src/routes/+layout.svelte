@@ -3,5 +3,9 @@
 	import './styles.css';
 </script>
 
+<svelte:head>
+	<title>Svelte Hacker News</title>
+</svelte:head>
+
 <Nav />
 <slot />

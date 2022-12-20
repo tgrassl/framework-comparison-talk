@@ -1,11 +1,12 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-import type { IStory } from "../../../types";
-import Comment from "../../../components/comment";
-import fetchAPI from "../../../api";
+import type { IStory } from '../../../types';
+import Comment from '../../../components/comment';
+import fetchAPI from '../../../api';
 
 const Story = async ({ params }: { params: { id: string } }) => {
   const story: IStory = await fetchAPI(`item/${params.id}`);
+
   return (
     story && (
       <div className="item-view">
@@ -15,16 +16,16 @@ const Story = async ({ params }: { params: { id: string } }) => {
           </a>
           {story.domain && <span className="host">({story.domain})</span>}
           <p className="meta">
-            {story.points} points | by{" "}
-            <Link href={`/users/${story.user}`}>{story.user}</Link>{" "}
+            {story.points} points | by{' '}
+            <Link href={`/users/${story.user}`}>{story.user}</Link>{' '}
             {story.time_ago} ago
           </p>
         </div>
         <div className="item-view-comments">
           <p className="item-view-comments-header">
             {story.comments_count
-              ? story.comments_count + " comments"
-              : "No comments yet."}
+              ? story.comments_count + ' comments'
+              : 'No comments yet.'}
           </p>
           <ul className="comment-children">
             {story.comments.map((comment) => (
